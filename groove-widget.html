@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- <script type=text/javascript src='file:///Users/hakansundstrom/Documents/Work/PaymentIQ-Groove-Support-Widget/integration_API/dist/piq_groove_api.js'></script> -->
+  <script type=text/javascript src="https://hakkespro.github.io/piq-groove-widget/piq_groove_api.js"></script>
+  <title>Document</title>
+</head>
+<style>
+#piq-groove-el {
+  /* border: 3px solid green; */
+  display: inline-block;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+}
+</style>
+<body>
+
+
+  <div id="piq-groove-el"></div>
+
+
+<script>
+
+const GrooveWidget = new _PaymentIQ_GROOVE_API_('#piq-groove-el',
+{
+  // showContactFormAtLoad: true, // Omit this flag in production or set to false.
+  // development: true, // Omit in production
+  // resStatusMock: 200, // Mock a status request. 200 returns success status, anything else is fail. Delete this to make real requests to groove.
+  fromPage: 'PaymentIQ Backoffice', // Required
+  supportEmail: 'support@paymentiq.io', // Required
+  additionalTicketData: {
+    fullName: 'C Ronaldo', // Required
+    email: 'c.ronaldo@juve.com', // Required
+    merchantId: '123333', // Required
+    merchantName: 'Test Inc.'
+  },
+  textKeys: {
+    needHelpText: 'Need help?'
+  },
+  height: '800px',
+  width: '600px',
+  docsCategories: [
+    {
+      name: 'Cashier',
+      url: 'https://docs.paymentiq.io/europe/cashier/general/about'
+    },
+    {
+      name: 'Integration API',
+      url: 'https://docs.paymentiq.io/europe/integration/general/introduction'
+    }
+  ],
+  allCategories: [
+    'PSP issues',
+    'Global',
+    'Provider name',
+    'txId/s',
+    'Configuration issues',
+    'Global'
+  ],
+  theme: {
+    // Accepts two properties. background and color
+    // background: 'green',
+    // color: '#ffffff'
+  }
+})
+
+</script>
+  
+</body>
+</html>
