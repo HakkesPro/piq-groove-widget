@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <!-- <script type=text/javascript src='file:///Users/hakansundstrom/Documents/Work/PaymentIQ-Groove-Support-Widget/integration_API/dist/piq_groove_api.js'></script> -->
-  <script type=text/javascript src="https://pay.paymentiq.io/groove-widget-integration-api/piq_groove_api.js"></script>
+  <script type=text/javascript src='file:///Users/hakansundstrom/Documents/Work/PaymentIQ-Groove-Support-Widget/integration_API/dist/piq_groove_api.js'></script>
+  <!-- <script type=text/javascript src="https://pay.paymentiq.io/groove-widget-integration-api/piq_groove_api.js"></script> -->
   <title>Groove Piq Widget Example</title>
 </head>
 <style>
@@ -15,6 +15,7 @@
   position: fixed;
   bottom: 0px;
   right: 0px;
+  z-index: 1000;
 }
 </style>
 <body>
@@ -28,41 +29,48 @@
 const GrooveWidget = new _PaymentIQ_GROOVE_API_('#piq-groove-el',
 {
   // showContactFormAtLoad: true, // Omit this flag in production or set to false.
-  // resStatusMock: 401, // Mock a status request. 200 returns success status, anything else is fail. Delete this to make real requests to groove.
+  // resStatusMock: 200, // Mock a status request. 200 returns success status, anything else is fail. Delete this to make real requests to groove.
   // If you mock status request, no ticket will be added to groove (Good if you want to play around with widget only)¨
   // development: true,
   fromPage: 'PaymentIQ Backoffice', // Required
   supportEmail: 'support@paymentiq.io', // Required
   additionalTicketData: {
-    fullName: 'C Ronaldo', // Required
-    email: 'c.ronaldo@juve.com', // Required
-    merchantId: '123333', // Required
-    merchantName: 'Test Inc.',
-    anythingAddedHereGoesToTicket: 'Lalalal'
+    userName: 'C Ronaldo',
+    email: 'c.ronaldo@juve.com',
+    merchantId: '123333',
+    merchantName: 'Test Inc.'
   },
   textKeys: {
-    needHelpText: 'Need help?'
+    needHelpText: 'Need help?',
+    contactOurSupport: 'Contact our support team',
+    confirmYourData: 'Confirm your data'
     // Keep adding text keys
   },
-  height: '800px',
-  width: '600px',
-  docsCategories: [
+  allCategories: [
     {
-      name: 'Cashier',
-      url: 'https://docs.paymentiq.io/europe/cashier/general/about'
+      label: 'PSP issues',
+      docsUrl: 'https://docs.paymentiq.io/europe'
     },
     {
-      name: 'Integration API',
-      url: 'https://docs.paymentiq.io/europe/integration/general/introduction'
+      label: 'Global',
+      docsUrl: 'https://docs.paymentiq.io/europe'
+    },
+    {
+      label: 'Provider name',
+      docsUrl: 'https://docs.paymentiq.io/europe'
+    },
+    {
+      label: 'txId/s',
+      docsUrl: 'https://docs.paymentiq.io/europe'
+    },
+    {
+      label: 'Configuration issues',
+      docsUrl: 'https://docs.paymentiq.io/europe'
+    },
+    {
+      label: 'Global',
+      docsUrl: 'https://docs.paymentiq.io/europe'
     }
-  ],
-  allCategories: [
-    'PSP issues',
-    'Global',
-    'Provider name',
-    'txId/s',
-    'Configuration issues',
-    'Global'
   ],
   theme: {
     // Accepts two properties. background and color
@@ -70,6 +78,16 @@ const GrooveWidget = new _PaymentIQ_GROOVE_API_('#piq-groove-el',
     // color: '#ffffff'
   }
 })
+
+window.GrooveWidget = GrooveWidget
+
+// setTimeout(() => {
+  // GrooveWidget.OPEN_SUPPORT_WIDGET({
+  //   metaTag: 'zzzzz',
+  //   txId: 12312312344,
+  //   rajrej: 'rajraj'
+  // })
+// }, 2000)
 
 </script>
   
