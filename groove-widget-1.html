@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- <script type=text/javascript src='file:///Users/hakansundstrom/Documents/Work/PaymentIQ-Groove-Support-Widget/integration_API/dist/piq_groove_api.js'></script> -->
+  <script type=text/javascript src="https://pay.paymentiq.io/groove-widget-integration-api/piq_groove_api.js"></script>
+  <title>Groove Piq Widget Example</title>
+</head>
+<style>
+#piq-groove-el {
+  /* border: 3px solid green; */
+  display: inline-block;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  z-index: 1000;
+}
+</style>
+<body>
+
+
+  <div id="piq-groove-el"></div>
+
+
+<script>
+
+const GrooveWidget = new _PaymentIQ_GROOVE_API_('#piq-groove-el',
+{
+  // showContactFormAtLoad: true, // Omit this flag in production or set to false.
+  // resStatusMock: 200, // Mock a status request. 200 returns success status, anything else is fail. Delete this to make real requests to groove.
+  // If you mock status request, no ticket will be added to groove (Good if you want to play around with widget only)¨
+  // development: true,
+  fromPage: 'PaymentIQ Backoffice', // Required
+  supportEmail: 'support@paymentiq.io', // Required
+  additionalTicketData: {
+    userName: 'C Ronaldo',
+    email: 'c.ronaldo@juve.com',
+    merchantId: '123333',
+    merchantName: 'Test Inc.'
+  },
+  textKeys: {
+    needHelpText: 'Need help?',
+    contactOurSupport: 'Contact our support team',
+    confirmYourData: 'Confirm your data'
+    // Keep adding text keys
+  },
+  allCategories: [
+    {
+      label: 'PSP issues',
+      docsUrl: 'https://docs.paymentiq.io/europe'
+    },
+    {
+      label: 'Global',
+      docsUrl: 'https://docs.paymentiq.io/europe'
+    },
+    {
+      label: 'Provider name',
+      docsUrl: 'https://docs.paymentiq.io/europe'
+    },
+    {
+      label: 'txId/s',
+      docsUrl: 'https://docs.paymentiq.io/europe'
+    },
+    {
+      label: 'Configuration issues',
+      docsUrl: 'https://docs.paymentiq.io/europe'
+    },
+    {
+      label: 'Global',
+      docsUrl: 'https://docs.paymentiq.io/europe'
+    }
+  ],
+  theme: {
+    // Accepts two properties. background and color
+    // background: 'green',
+    // color: '#ffffff'
+  }
+})
+
+window.GrooveWidget = GrooveWidget
+
+// setTimeout(() => {
+  // GrooveWidget.OPEN_SUPPORT_WIDGET({
+  //   metaTag: 'zzzzz',
+  //   txId: 12312312344,
+  //   rajrej: 'rajraj'
+  // })
+// }, 2000)
+
+</script>
+  
+</body>
+</html>
