@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <script type=text/javascript src='file:///Users/hakansundstrom/Documents/Work/PaymentIQ-Groove-Support-Widget/integration_API/dist/piq_groove_api.js'></script>
-  <!-- <script type=text/javascript src="https://pay.paymentiq.io/groove-widget-integration-api/piq_groove_api.js"></script> -->
+  <!-- <script type=text/javascript src='file:///Users/hakansundstrom/Documents/Work/PaymentIQ-Groove-Support-Widget/integration_API/dist/piq_groove_api.js'></script> -->
+  <script type=text/javascript src="https://pay.paymentiq.io/groove-widget-integration-api/piq_groove_api.js"></script>
   <title>Groove Piq Widget Example</title>
 </head>
 <style>
@@ -40,42 +40,73 @@ const GrooveWidget = new _PaymentIQ_GROOVE_API_('#piq-groove-el',
     merchantId: '123333',
     merchantName: 'Test Inc.'
   },
-  textKeys: {
-    needHelpText: 'Need help?',
-    contactOurSupport: 'Contact our support team',
-    confirmYourData: 'Confirm your data'
-    // Keep adding text keys
-  },
   allCategories: [
     {
-      label: 'PSP issues',
-      docsUrl: 'https://docs.paymentiq.io/europe'
+      category: 'PSP issues',
+      subCategories: [
+        {
+          label: 'IPS issues 1',
+          template: '<p>Hello there im a prefilled template, <a href="https://www.google.se/">Go to url</a>',
+          message: 'Prefilled message text and a question possibly? 1'
+        },
+        {
+          label: 'IPS issues 2',
+          template: '<p>Hello there im a prefilled template, <a href="https://www.google.se/">Go to url</a>',
+          message: 'Prefilled message text and a question possibly? 2'
+        }
+      ]
     },
     {
-      label: 'Global',
-      docsUrl: 'https://docs.paymentiq.io/europe'
+      category: 'Global',
+      subCategories: [
+        {
+          label: 'Global issues 1',
+          template: '<p>Hello there im a prefilled template, <a href="https://www.google.se/">Go to url</a>',
+          message: 'Prefilled message text and a question possibly? 3'
+        },
+        {
+          label: 'Global issues 2',
+          // template: '<p>Hello there im a prefilled template, <a href="https://www.google.se/">Go to url</a>',
+          // message: 'Prefilled message text and a question possibly? 4'
+        }
+      ]
     },
     {
-      label: 'Provider name',
-      docsUrl: 'https://docs.paymentiq.io/europe'
-    },
-    {
-      label: 'txId/s',
-      docsUrl: 'https://docs.paymentiq.io/europe'
-    },
-    {
-      label: 'Configuration issues',
-      docsUrl: 'https://docs.paymentiq.io/europe'
-    },
-    {
-      label: 'Global',
-      docsUrl: 'https://docs.paymentiq.io/europe'
+      category: 'Tx issues',
+      subCategories: [
+        {
+          label: 'Tx issues 1',
+          template: '<p>Hello there im a prefilled template, <a href="https://www.google.se/">Go to url</a>',
+          message: 'Prefilled message text and a question possibly? 5'
+        },
+        {
+          label: 'Tx issues 2',
+          template: '<p>Hello there im a prefilled template, <a href="https://www.google.se/">Go to url</a>',
+          message: 'Prefilled message text and a question possibly? 6'
+        }
+      ]
     }
   ],
+  textKeys: {
+    needHelpText: 'Need help?',
+    category: 'Category',
+    subject: 'Subject',
+    generalAnswer: 'General answer.',
+    message: 'Message',
+    nextBtn: 'Next',
+    confirmYourData: 'Confirm your data',
+    userName: 'Your name',
+    yourEmail: 'Your email',
+    yourMessage: 'Your message',
+    sendMessageBtn: 'Send message',
+    thankYouForYourRequest: 'Thank you for your reqeust!',
+    requestHasBeenSentSubText: 'We will get back to you asap',
+    clear: 'Clear all'
+  },
   theme: {
     // Accepts two properties. background and color
-    // background: 'green',
-    // color: '#ffffff'
+    background: 'blue',
+    color: '#ffffff'
   }
 })
 
@@ -83,6 +114,8 @@ window.GrooveWidget = GrooveWidget
 
 // setTimeout(() => {
   // GrooveWidget.OPEN_SUPPORT_WIDGET({
+  //   category: 'Tx issues 1222',
+  //   subject: 'Prefilled subject',
   //   metaTag: 'zzzzz',
   //   txId: 12312312344,
   //   rajrej: 'rajraj'
