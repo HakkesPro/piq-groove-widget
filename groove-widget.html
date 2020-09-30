@@ -25,6 +25,120 @@
 
 
 <script>
+const allCategories = [
+  {
+    category: 'Provider questions',
+    subCategories: [
+      {
+        label: 'Add new provider',
+        message: 'Hello, we saw that you have {PROVIDER} as provider, could you please add this?'
+      },
+      {
+        label: 'Provider issues',
+        template: '<p>Hello there im a prefilled template, <a href="https://www.google.se/">Go to url</a>',
+        message: 'Hello, our transactions with this provider seem to be failing, could you have a look?'
+      },
+      {
+        label: 'New provider integration request'
+      },
+      {
+        label: 'General question'
+      }
+    ]
+  },
+  {
+    category: 'Transaction questions',
+    subCategories: [
+      {
+        label: 'Transactional issues',
+        message: 'Hello, why did this transaction fail?'
+      }
+    ]
+  },
+  {
+    category: 'Backoffice questions',
+    subCategories: [
+      {
+        label: 'Backoffice user question'
+      },
+      {
+        label: 'Backoffice issues'
+      },
+      {
+        label: 'General question',
+        message: 'Hello,'
+      },
+      {
+        label: 'Configuration questions',
+        message: 'Hello, we are getting a "Oops" error when we are trying to update one of our configurations, what is causing this?'
+      },
+      {
+        label: 'Rule issue',
+        message: 'Hello, we can not seem to trigger this Payment Method rule, please advise'
+      },
+      {
+        label: 'Rule question',
+        message: 'Hey, is it possible to do {XXX} using the {YYY} rule?'
+      }
+    ]
+  },
+  {
+    category: 'Feature request',
+    subCategories: [
+      {
+        label: 'Feature request',
+        message: "Hey, We'd like to have a new feature integrated, *BUSINESS CASE HERE* and the functionality should be like *WORK CASE SCENARIO HERE*"
+      }
+    ]
+  },
+  {
+    category: 'Integration API questions',
+    subCategories: [
+      {
+        label: 'Integration API issues',
+        message: "Hello, we aren't receiving any integration requests from PaymentIQ"
+      },
+      {
+        label: 'Integration API General question',
+        message: 'Hello, is it possible to add extra attributes to the VerifyUser response?'
+      }
+    ]
+  },
+  {
+    category: 'Cashier questions',
+    subCategories: [
+      {
+        label: 'Cashier issues',
+        message: 'Hello, No methods are displaying in the cashier, we are using {XXX} to initiate the cashier',
+        template: `<p>Have you read our documentation on how to initialize the cashier correctly? You might find what you are looking for here.
+        <br />
+        <a target="_blank" href="https://docs.paymentiq.io/europe/cashier/general/initialize">Initalize the cashier</a>`
+      }
+    ]
+  },
+  {
+    category: 'Front API question',
+    subCategories: [
+      {
+        label: 'Front API issues',
+        message: "Hello, Our request is failing with a 401, what's causing this?"
+      },
+      {
+        label: 'Front API general question',
+        message: 'Hello, is it possible to do {XXX} using {YYY} from the front end API?'
+      }
+    ]
+  },
+  {
+    category: 'Other',
+    subCategories: [
+      {
+        label: 'Other question'
+      }
+    ]
+  }
+]
+
 
 const GrooveWidget = new _PaymentIQ_GROOVE_API_('#piq-groove-el',
 {
@@ -32,6 +146,7 @@ const GrooveWidget = new _PaymentIQ_GROOVE_API_('#piq-groove-el',
   // resStatusMock: 200, // Mock a status request. 200 returns success status, anything else is fail. Delete this to make real requests to groove.
   // If you mock status request, no ticket will be added to groove (Good if you want to play around with widget only)¨
   // development: true,
+  noConfirm: true,
   fromPage: 'PaymentIQ Backoffice', // Required
   supportEmail: 'support@paymentiq.io', // Required
   additionalTicketData: {
@@ -40,53 +155,7 @@ const GrooveWidget = new _PaymentIQ_GROOVE_API_('#piq-groove-el',
     merchantId: '123333',
     merchantName: 'Test Inc.'
   },
-  allCategories: [
-    {
-      category: 'PSP issues',
-      subCategories: [
-        {
-          label: 'IPS issues 1',
-          template: '<p>Hello there im a prefilled template, <a href="https://www.google.se/">Go to url</a>',
-          message: 'Prefilled message text and a question possibly? 1'
-        },
-        {
-          label: 'IPS issues 2',
-          template: '<p>Hello there im a prefilled template, <a href="https://www.google.se/">Go to url</a>',
-          message: 'Prefilled message text and a question possibly? 2'
-        }
-      ]
-    },
-    {
-      category: 'Global',
-      subCategories: [
-        {
-          label: 'Global issues 1',
-          template: '<p>Hello there im a prefilled template, <a href="https://www.google.se/">Go to url</a>',
-          message: 'Prefilled message text and a question possibly? 3'
-        },
-        {
-          label: 'Global issues 2',
-          // template: '<p>Hello there im a prefilled template, <a href="https://www.google.se/">Go to url</a>',
-          // message: 'Prefilled message text and a question possibly? 4'
-        }
-      ]
-    },
-    {
-      category: 'Tx issues',
-      subCategories: [
-        {
-          label: 'Tx issues 1',
-          template: '<p>Hello there im a prefilled template, <a href="https://www.google.se/">Go to url</a>',
-          message: 'Prefilled message text and a question possibly? 5'
-        },
-        {
-          label: 'Tx issues 2',
-          template: '<p>Hello there im a prefilled template, <a href="https://www.google.se/">Go to url</a>',
-          message: 'Prefilled message text and a question possibly? 6'
-        }
-      ]
-    }
-  ],
+  allCategories,
   textKeys: {
     needHelpText: 'Need help?',
     category: 'Category',
