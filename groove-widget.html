@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <!-- <script type=text/javascript src='file:///Users/hakansundstrom/Documents/Work/PaymentIQ-Groove-Support-Widget/integration_API/dist/piq_groove_api.js'></script> -->
+  <!-- <script type=text/javascript src='file:///Users/hakansundstrom/Documents/Dev/Work/PaymentIQ-Groove-Support-Widget/integration_API/dist/piq_groove_api.js'></script> -->
   <script type=text/javascript src="https://pay.paymentiq.io/groove-widget-integration-api/piq_groove_api.js"></script>
   <title>Groove Piq Widget Example</title>
 </head>
@@ -25,120 +25,6 @@
 
 
 <script>
-const allCategories = [
-  {
-    category: 'Provider questions',
-    subCategories: [
-      {
-        label: 'Add new provider',
-        message: 'Hello, we saw that you have {PROVIDER} as provider, could you please add this?'
-      },
-      {
-        label: 'Provider issues',
-        template: '<p>Hello there im a prefilled template, <a href="https://www.google.se/">Go to url</a>',
-        message: 'Hello, our transactions with this provider seem to be failing, could you have a look?'
-      },
-      {
-        label: 'New provider integration request'
-      },
-      {
-        label: 'General question'
-      }
-    ]
-  },
-  {
-    category: 'Transaction questions',
-    subCategories: [
-      {
-        label: 'Transactional issues',
-        message: 'Hello, why did this transaction fail?'
-      }
-    ]
-  },
-  {
-    category: 'Backoffice questions',
-    subCategories: [
-      {
-        label: 'Backoffice user question'
-      },
-      {
-        label: 'Backoffice issues'
-      },
-      {
-        label: 'General question',
-        message: 'Hello,'
-      },
-      {
-        label: 'Configuration questions',
-        message: 'Hello, we are getting a "Oops" error when we are trying to update one of our configurations, what is causing this?'
-      },
-      {
-        label: 'Rule issue',
-        message: 'Hello, we can not seem to trigger this Payment Method rule, please advise'
-      },
-      {
-        label: 'Rule question',
-        message: 'Hey, is it possible to do {XXX} using the {YYY} rule?'
-      }
-    ]
-  },
-  {
-    category: 'Feature requests',
-    subCategories: [
-      {
-        label: 'Feature request',
-        message: "Hey, We'd like to have a new feature integrated, *BUSINESS CASE HERE* and the functionality should be like *WORK CASE SCENARIO HERE*"
-      }
-    ]
-  },
-  {
-    category: 'Integration API questions',
-    subCategories: [
-      {
-        label: 'Integration API issues',
-        message: "Hello, we aren't receiving any integration requests from PaymentIQ"
-      },
-      {
-        label: 'Integration API General question',
-        message: 'Hello, is it possible to add extra attributes to the VerifyUser response?'
-      }
-    ]
-  },
-  {
-    category: 'Cashier questions',
-    subCategories: [
-      {
-        label: 'Cashier issues',
-        message: 'Hello, No methods are displaying in the cashier, we are using {XXX} to initiate the cashier',
-        template: `<p>Have you read our documentation on how to initialize the cashier correctly? You might find what you are looking for here.
-        <br />
-        <a target="_blank" href="https://docs.paymentiq.io/europe/cashier/general/initialize">Initalize the cashier</a>`
-      }
-    ]
-  },
-  {
-    category: 'Front API question',
-    subCategories: [
-      {
-        label: 'Front API issues',
-        message: "Hello, Our request is failing with a 401, what's causing this?"
-      },
-      {
-        label: 'Front API general question',
-        message: 'Hello, is it possible to do {XXX} using {YYY} from the front end API?'
-      }
-    ]
-  },
-  {
-    category: 'Other',
-    subCategories: [
-      {
-        label: 'Other question'
-      }
-    ]
-  }
-]
-
 
 const GrooveWidget = new _PaymentIQ_GROOVE_API_('#piq-groove-el',
 {
@@ -154,23 +40,6 @@ const GrooveWidget = new _PaymentIQ_GROOVE_API_('#piq-groove-el',
     email: 'c.ronaldo@juve.com',
     merchantId: '123333',
     merchantName: 'Test Inc.'
-  },
-  allCategories,
-  textKeys: {
-    needHelpText: 'Need help?',
-    category: 'Category',
-    subject: 'Subject',
-    generalAnswer: 'General answer.',
-    message: 'Message',
-    nextBtn: 'Next',
-    confirmYourData: 'Confirm your data',
-    userName: 'Your name',
-    yourEmail: 'Your email',
-    yourMessage: 'Your message',
-    sendMessageBtn: 'Send message',
-    thankYouForYourRequest: 'Thank you for your reqeust!',
-    requestHasBeenSentSubText: 'We will get back to you asap',
-    clear: 'Clear all'
   },
   theme: {
     // Accepts two properties. background and color
