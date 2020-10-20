@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <script type=text/javascript src='file:///Users/hakansundstrom/Documents/Dev/Work/PaymentIQ-Groove-Support-Widget/integration_API/dist/piq_groove_api.js'></script>
-  <!-- <script type=text/javascript src="https://pay.paymentiq.io/groove-widget-integration-api/piq_groove_api.js"></script> -->
+  <!-- <script type=text/javascript src='file:///Users/hakansundstrom/Documents/Dev/Work/PaymentIQ-Groove-Support-Widget/integration_API/dist/piq_groove_api.js'></script> -->
+  <script type=text/javascript src="https://pay.paymentiq.io/groove-widget-integration-api/piq_groove_api.js"></script>
   <title>Groove Piq Widget Example</title>
 </head>
 <style>
@@ -31,7 +31,7 @@ const GrooveWidget = new _PaymentIQ_GROOVE_API_('#piq-groove-el',
   // showContactFormAtLoad: true, // Omit this flag in production or set to false.
   resStatusMock: 200, // Mock a status request. 200 returns success status, anything else is fail. Delete this to make real requests to groove.
   // If you mock status request, no ticket will be added to groove (Good if you want to play around with widget only)¨
-  // development: true,
+  development: true,
   confirmPage: false,
   fromPage: 'PaymentIQ Backoffice', // Required
   supportEmail: 'support@paymentiq.io', // Required
